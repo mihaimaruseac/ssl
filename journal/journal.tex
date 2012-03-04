@@ -1,0 +1,49 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage[english,romanian]{babel}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+\title{Solving CAPTCHAs}
+\author{Mihai Maruseac, Lucian Mogoșanu, Sofia Neață, Adrian Șendroiu}
+\date{March 2012}
+
+% TODO: use a different template/layout for paper/journal
+% TODO: restructure tex if document has the change of getting big
+\begin{document}
+
+\maketitle
+
+\subsection*{Project motivation}
+
+The CAPTCHA (Completely Automated Public Turing test to tell
+Computers and Humans Apart) mechanism is a measure widely used on
+the World Wide Web to provide tests solvable only by human users.
+It is commonly used as a means to prevent problems such as automated
+spam, website registration, collection of e-mail addresses or abuse
+of services such as online voting.
+
+Usually CAPTCHAs consist of a challenge-response test in which the
+user is provided with an image containing a small number of words
+and is asked to type them back. This kind of test is in theory
+easily solvable by a human agent, while the problem of recognizing the
+text in an image is not trivial from the point of view of algorithms.
+Moreover, the CAPTCHA usually contains noise and/or distorted text,
+making the use techniques such as Optical Character Recognition
+difficult. This is similar to the manner in which one-way functions
+are used in cryptographic algorithms.
+
+Our project aims to use Machine Learning for the purpose of solving 
+CAPTCHAs. There are several approaches to this. One approach would
+involve using a free/open source CAPTCHA generator to generate
+a set of training and/or test examples and try to improve on
+various algorithms known to work well on this problem. Testing
+against well-known CAPTCHA systems such as Google's reCAPTCHA
+\footnote{\url{http://www.google.com/recaptcha}} could also give
+us a good idea about the performance of our algorithm(s), as
+well as the effectiveness of CAPTCHA as a security mechanism.
+
+\end{document}
