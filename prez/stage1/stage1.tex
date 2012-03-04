@@ -1,0 +1,55 @@
+\documentclass[red]{beamer}
+\setbeamertemplate{navigation symbols}{}
+\usepackage[utf8x]{inputenc}
+\usepackage{graphicx}
+\usepackage{beamerthemeshadow}
+
+\usetheme{CambridgeUS}
+\setbeamercolor{itemize item}{fg=red} % all frames will have red bullets
+
+\begin{document}
+\title{Solving CAPTCHAs}
+\author[MM, LM, SN, AS]{Mihai Maruseac, Lucian Mogoșanu, Sofia Neață, Adrian Șendroiu}
+\date{March 2012}
+
+\pgfdeclareimage{q}{img/q}
+
+\maketitle
+
+\begin{frame}{Admin}
+  \begin{itemize}
+    \item Team: UnCAPTCHA
+      \begin{itemize}
+        \item Mihai Maruseac
+        \item Lucian Mogoșanu
+        \item Sofia Neață
+        \item Adrian Șendroiu
+      \end{itemize}
+    \item Repo: \url{https://github.com/mihaimaruseac/ssl}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Motivation}
+  \begin{itemize}
+    \item See system's weaknesses
+    \item Similar to a dechipering problem
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Tools}
+  \begin{itemize}
+    \item libSVM, Shogun
+    \item WEKA, RapidMiner
+    \item CAPTCHA generator, Google's reCAPTCHA
+    \pause
+    \item need state of the art to get a better overview
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Thank you}
+  \begin{center}
+    \pgfuseimage{q}
+  \end{center}
+\end{frame}
+
+\end{document}
