@@ -19,4 +19,4 @@ clean:
 	make -C code clean
 
 dist: clean
-	zip -r SSL_UnCaptcha *
+	zip -r SSL_UnCAPTCHA *
