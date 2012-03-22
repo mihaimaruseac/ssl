@@ -39,7 +39,7 @@ making the use techniques such as Optical Character Recognition
 difficult. This is similar to the manner in which one-way functions
 are used in cryptographic algorithms.
 
-Our project aims to use Machine Learning for the purpose of solving 
+Our project aims to use Machine Learning for the purpose of solving
 CAPTCHAs. There are several approaches to this. One approach would
 involve using a free/open source CAPTCHA generator to generate
 a set of training and/or test examples and try to improve on
@@ -56,7 +56,7 @@ from short audio streams to images. Thus previous research on the
 matter has been focused more or less on all these aspects. For
 example Tam et al. \cite{VonAhn_Tam_Hyde_Simsa_2009} use a technique
 similar to a Fast Fourier Transform (FFT), along with other methods,
-to break audio CAPTCHAs. Merler and Jacob \cite{Merler:2009} attempt 
+to break audio CAPTCHAs. Merler and Jacob \cite{Merler:2009} attempt
 to solve CAPTCHAs that consist of a combination of letters and
 images from given categories, using VidoopCAPTCHA
 \footnote{\url{http://vidoop.com/captcha/}} to generate data and
@@ -81,6 +81,54 @@ by separating them from the CAPTCHA clutter using Shape Contexts
  - this is basically done by trying to match candidate shapes
  against a predefined database of objects.
 
+Chia-Shen Lee \cite{ShenLee} uses libraries for Support Vector
+Machines to break the open-source CAPTCHA script Securimage
+\footnote{\url{http://www.phpcaptcha.org/}}. He gives details
+on the SVM libraries used, namely libSVM and SVM-Light, and
+methods used to generate training data. The article also provides
+an analysis regarding the performance of the support vector machines
+in respect to the number of training examples and the form of
+the text.
+
+The results show that while the algorithms yield a success ratio
+of over 80\% for normal text, it fails to classify rotated text
+properly. This would imply that the SVM themselves are not
+enough, requiring an additional preprocessing phase to adjust
+the text before attempting to classify the letters.
+
+Jeff Yan and Ahmad Salah El Ahmad \cite{Yan_breakingvisual}
+take into consideration the following four types of CAPTCHA schemes:
+word\_image (six-letter word), random\_letters\_image (random six-
+letter sequence), user\_string\_image(up to 15 characters sequence) and
+number\_puzzle\_text\_image (random number).
+
+For the word\_image and random\_letters\_image cases, the considered
+test cases contain only images with one background color (the color of
+the most top-left pixel) and one foreground color (the other color
+found). The second assumption is that only capital letters are used
+and for each letter has been determined the required number of pixels
+(the problem is that some letters are formed by the same number of
+pixels).
+
+For the number\_puzzle\_text\_image case, the considered test
+cases contain 1 to 7 digits; the detected digits are $\{0, 1, 2, 3,
+4, 6, \text{and}\; 9\}$. A table containing the number of pixels
+for each digit is determined.
+
+The proposed solution for word\_image implies dividing the image
+into vertical segments, with ''border lines'' (lines containing only
+background pixels) delimiting the letters. This method uses pixel
+count to find the letter and is improved on by using an English
+dictionary with pixel count. Broken characters (missing pixels)
+and segments with additional pixels are handled by merging
+neighbouring segments and by selecting letters with the closest
+pixel count respectively.
+
+The random\_letters\_image case is solved by using a so-called
+''snake segmentation''. In this case letters are separated by
+broken lines, while taking into account the elimination of snakes
+caused by broken characters. Geometric analysis is applied to
+differentiate between letters that have the same number of pixels.
 
 \vskip 0.2in
 \bibliographystyle{plain}
