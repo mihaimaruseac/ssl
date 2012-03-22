@@ -20,7 +20,7 @@
 The repository for this project can be found on GitHub
 \footnote{\url{https://github.com/mihaimaruseac/ssl}}.
 
-\subsection*{Project motivation}
+\section*{Project motivation}
 
 The CAPTCHA (Completely Automated Public Turing test to tell
 Computers and Humans Apart) mechanism is a measure widely used on
@@ -49,11 +49,38 @@ against well-known CAPTCHA systems such as Google's reCAPTCHA
 us a good idea about the performance of our algorithm(s), as
 well as the effectiveness of CAPTCHA as a security mechanism.
 
-\subsection*{State of The Art}
+\section*{State of The Art}
 
-\cite{Mori:2003:ROA:1965841.1965858}
+CAPTCHA tests can be found in various forms on the Internet, ranging
+from short audio streams to images. Thus previous research on the
+matter has been focused more or less on all these aspects. For
+example Tam et al. \cite{VonAhn_Tam_Hyde_Simsa_2009} use a technique
+similar to a Fast Fourier Transform (FFT), along with other methods,
+to break audio CAPTCHAs. Merler and Jacob \cite{Merler:2009} attempt 
+to solve CAPTCHAs that consist of a combination of letters and
+images from given categories, using VidoopCAPTCHA
+\footnote{\url{http://vidoop.com/captcha/}} to generate data and
+image classifiers based on Support Vector Machines (SVM) to obtain
+a model of the CAPTCHA.
 
-TODO
+However the most common type of CAPTCHA are those that are based
+on text. The text is usually presented in a distorted form
+and accompanied by noise so that it can't be solved by using OCR
+techniques. Google's reCAPTCHA uses audio as well as text as
+a challenge for the user, at the same time using the user's
+responses to provide a basis for digitization of books, newspapers
+and old radio shows. von Ahn et al.'s paper \cite{vonAhn12092008}
+gives a short presentation of how this is accomplished.
+
+A large number of researchers have worked on breaking the EZ-Gimpy
+and Gimpy \footnote{\url{http://www.captcha.net/captchas/gimpy/}}
+CAPTCHA generators used by Yahoo. From these, an interesting
+approach is that of Mori and Malik
+\cite{Mori:2003:ROA:1965841.1965858}, trying to recognize letters
+by separating them from the CAPTCHA clutter using Shape Contexts
+ - this is basically done by trying to match candidate shapes
+ against a predefined database of objects.
+
 
 \vskip 0.2in
 \bibliographystyle{plain}
