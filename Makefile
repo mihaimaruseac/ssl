@@ -1,4 +1,4 @@
-.PHONY: all build journal prez code clean zip_stage1
+.PHONY: all build journal prez code clean zip_stage1 zip_stage2
 
 ARCHIVE = SSL_UnCAPTCHA.zip
 ZIP = zip -r
@@ -29,3 +29,7 @@ dist: clean
 zip_stage1: clean journal prez
 	$(RM) $(ARCHIVE)
 	$(ZIPJ) $(ARCHIVE) journal/journal.pdf prez/stage1/stage1.pdf
+
+zip_stage2: clean journal prez
+	$(RM) $(ARCHIVE)
+	$(ZIPJ) $(ARCHIVE) journal/journal.pdf prez/stage2/stage2.pdf
