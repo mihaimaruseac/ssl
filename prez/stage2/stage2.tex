@@ -29,20 +29,56 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Motivation}
+\begin{frame}{State of The Art - CAPTCHA systems}
   \begin{itemize}
-    \item See system's weaknesses
-    \item Similar to a dechipering problem
+  	\item reCAPTCHA - Google
+	\begin{itemize}
+		\item Visual and audio
+	\end{itemize}
+	\item (EZ)-Gimpy - Yahoo
+	\item Securimage
+	\item freeCap
+	\begin{itemize}
+		\item Last two are free, open-source
+	\end{itemize}
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Tools}
+\begin{frame}{Audio/Image CAPTCHAs}
   \begin{itemize}
-    \item libSVM, Shogun
-    \item WEKA, RapidMiner
-    \item CAPTCHA generator, Google's reCAPTCHA
-    \pause
-    \item need state of the art to get a better overview
+  	\item Tam et al. - Audio CAPTCHA
+	\begin{itemize}
+		\item Data from various sources
+	\end{itemize}
+	\item Merler, Jacob - Vidoop
+	\pause
+	\item Both use Support Vector Machines
+	\item Combined with other methods
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Text-based CAPTCHAs}
+  \begin{itemize}
+  	\item Mori, Malik - Shape Contexts
+	\item Chia-Shen Lee - Naive SVM
+	\item Yan, Salah El Ahmad - Segmentation
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Processing methods}
+  \begin{itemize}
+  	\item Shape Contexts
+	\begin{itemize}
+		\item Pattern matching against a shape database
+		\item Use dictionary to find likely words
+	\end{itemize}
+	\item Segmentation
+	\begin{itemize}
+		\item Naive: vertical lines to separate letters
+		\item Process to compensate for noise
+		\item Improvement: ''snake'' segmentation
+	\end{itemize}
+	\item Models - using ML
   \end{itemize}
 \end{frame}
 
