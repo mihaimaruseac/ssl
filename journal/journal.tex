@@ -130,6 +130,63 @@ broken lines, while taking into account the elimination of snakes
 caused by broken characters. Geometric analysis is applied to
 differentiate between letters that have the same number of pixels.
 
+\section*{Architecture}
+%TODO: pictures
+The application code will be constructed using a pipelined approach: the image
+containing the captcha will be fed as input to the executable and the output
+will be the text contained in the captcha, possibly annotated with some more
+informations (certainty in the result for example). % TODO: decide
+
+We don't want to limit the application to a single kind of captcha. Because of
+this, the pipeline must be easily expendable with new stages or some stages
+from this pipeline should be easily switched with others.
+
+% TODO: decide how do implement modifiable pipeline
+
+There are a few modules in the pipeline which should be kept, no matter what
+kind of image is given as input. By module we convey a sequence of stages,
+each of them being concerned with one part of the entire transformation chain
+from the input image to the output text.
+
+The first one of the modules -- \textit{Reading} -- will involve reading the
+image and converting it to an internal format. The initial captcha can be a
+PNG, a JPEG or a PPM image, it does not matter for the application. This
+initial module will read the image and will convert it's content to the same
+internal format, regardless of the initial format.
+
+The second one of these modules is called \textit{Preprocessing} and will
+transform the image using a set of filters and image transformation tools such
+that the number of distortions will be reduced. We expect that the output of
+this stage will be a more clearer image. However, since this stage has little
+information to work on -- at this point we only know that the image consists
+of text and some details about the transformations done to it -- we cannot
+guarantee that this module will achieve a perfect looking image at the end: we
+will need more processing down the pipeline.
+
+Next, -- at the \textit{Layouting} stage -- we will try to learn a few more
+characteristics of the image: main line of the text, estimate distance between
+letters, size of letters, etc. This model of the image will be passed down the
+pipeline to more stages than just the next one.
+
+Then, the \textit{Linearizing} stage will use the informations from the
+\textit{Layouting} one in order to transform the image again such that each
+letter of the text can be easily separated from its neighbours and the entire
+text is laid out linearly, with as few distortions as possible.
+
+After this, another learning stage will be placed. The \textit{Lettering}
+stage will try to construct a possible representation of each letter in the
+image. We can either output a single guess for each letter or several guesses
+together with our confidence in their values. As inputs, this module will also
+receive the output of the \textit{Layouting} phase. This will help to discern
+between letters, making it easier to avoid problems caused by neighbouring
+characters.
+
+The last stage of the application will involve mixing these predictions in
+order to create estimates for the text in the image. We can use several mixing
+strategies here. Thus, the \textit{Mixing} module is able to output either a
+single string or a list of strings together with our confidence in the fact
+that each one of them was a member of the initial captcha.
+
 \vskip 0.2in
 \bibliographystyle{plain}
 \bibliography{bibliography}
