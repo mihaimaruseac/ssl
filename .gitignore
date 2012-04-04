@@ -1,2 +1,4 @@
 .*.sw*
 *.zip
+texfiles
+*.pdf
