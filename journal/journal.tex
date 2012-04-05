@@ -141,13 +141,16 @@ differentiate between letters that have the same number of pixels.
 The application code will be constructed using a pipelined approach: the image
 containing the captcha will be fed as input to the executable and the output
 will be the text contained in the captcha, possibly annotated with some more
-informations (certainty in the result for example). % TODO: decide
+informations (certainty in the result for example).
 
 We don't want to limit the application to a single kind of captcha. Because of
 this, the pipeline must be easily expandable with new stages or some stages
 from this pipeline should be easily switched with others.
 
-% TODO: decide how do implement modifiable pipeline
+This can be done by having a separate module which will read a configuration
+file from which it will know what modules to be instantiated. For a start,
+this module will be silent, we won't use it until the first draft of the
+application is done.
 
 There are a few modules in the pipeline which should be kept, no matter what
 kind of image is given as input. By module we convey a sequence of stages,
@@ -192,6 +195,12 @@ order to create estimates for the text in the image. We can use several mixing
 strategies here. Thus, the \textit{Mixing} module is able to output either a
 single string or a list of strings together with our confidence in the fact
 that each one of them was a member of the initial captcha.
+
+However, this pipeline is not the entire framework. Our application will use a
+supervised learning method to tweak some of the parameters used in the
+pipeline. Because of this, on top of this sequence of stages we will have a
+module which should create CAPTCHAs and a module to test the learning
+capabilities of the application.
 
 \vskip 0.2in
 \bibliographystyle{plain}
