@@ -29,56 +29,49 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{State of The Art - CAPTCHA systems}
+\begin{frame}{Architecture - Overview}
+	\begin{center}
+	\includegraphics[width=0.85\textwidth]{img/unCAPTCHAarchitecturedraft.pdf}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Architecture - Overview}
   \begin{itemize}
-  	\item reCAPTCHA - Google
+  	\item Use Securimage to generate CAPTCHAs
+	\item Feed them to a trainer and/or a tester
+	\item Actual work done by the unCAPTCHA engine
 	\begin{itemize}
-		\item Visual and audio
-	\end{itemize}
-	\item (EZ)-Gimpy - Yahoo
-	\item Securimage
-	\item freeCap
-	\begin{itemize}
-		\item Last two are free, open-source
+		\item Pipelined architecture
+		\item Easily extensible
 	\end{itemize}
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Audio/Image CAPTCHAs}
+\begin{frame}{unCAPTCHA engine - Reading}
   \begin{itemize}
-  	\item Tam et al. - Audio CAPTCHA
-	\begin{itemize}
-		\item Data from various sources
-	\end{itemize}
-	\item Merler, Jacob - Vidoop
-	\pause
-	\item Both use Support Vector Machines
-	\item Combined with other methods
+  	% TODO
+	\item
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Text-based CAPTCHAs}
+\begin{frame}{unCAPTCHA engine - Preprocessing}
   \begin{itemize}
-  	\item Mori, Malik - Shape Contexts
-	\item Chia-Shen Lee - Naive SVM
-	\item Yan, Salah El Ahmad - Segmentation
+  	% TODO
+	\item
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Processing methods}
+\begin{frame}{unCAPTCHA engine - Layouting \& Linearizing}
   \begin{itemize}
-  	\item Shape Contexts
-	\begin{itemize}
-		\item Pattern matching against a shape database
-		\item Use dictionary to find likely words
-	\end{itemize}
-	\item Segmentation
-	\begin{itemize}
-		\item Naive: vertical lines to separate letters
-		\item Process to compensate for noise
-		\item Improvement: ''snake'' segmentation
-	\end{itemize}
-	\item Models - using ML
+  	% TODO
+	\item
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{unCAPTCHA engine - Lettering \& Mixing}
+  \begin{itemize}
+  	% TODO
+	\item
   \end{itemize}
 \end{frame}
 
