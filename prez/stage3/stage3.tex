@@ -49,29 +49,52 @@
 
 \begin{frame}{unCAPTCHA engine - Reading}
   \begin{itemize}
-  	% TODO
-	\item
+    \item PNG, PPM, JPEG, BMP
+    \item One single internal format
+    \item Easier for next stages
   \end{itemize}
 \end{frame}
 
 \begin{frame}{unCAPTCHA engine - Preprocessing}
   \begin{itemize}
-  	% TODO
-	\item
+    \item transform the image
+    \item filters
+    \item perspective corrections, contrast enhancements
+    \item reduce distortions
+    \item much clearer image
+    \item not a complete preprocessing, needs more data from next stages
   \end{itemize}
 \end{frame}
 
 \begin{frame}{unCAPTCHA engine - Layouting \& Linearizing}
   \begin{itemize}
-  	% TODO
-	\item
+    \item main direction of text, distance between letters, size of letters
+    \item separate each letter from the neighbours
+    \item achieve near to 0 distortions
   \end{itemize}
 \end{frame}
 
 \begin{frame}{unCAPTCHA engine - Lettering \& Mixing}
   \begin{itemize}
-  	% TODO
-	\item
+    \item guess letter values
+    \item most probable letter or a vector of pairs (letter, confidence)
+    \item mix letters to form text behind captcha
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{unCAPTCHA engine - Supervised learning}
+  \begin{itemize}
+    \item on top of the pipeline
+    \item create distorted images and feed them to the engine
+    \item testing and parameter tweaking
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{unCAPTCHA engine - Modifiable pipeline}
+  \begin{itemize}
+    \item multiple modules
+    \item read configuration file and instantiate them
+    \item not in beta version
   \end{itemize}
 \end{frame}
 
