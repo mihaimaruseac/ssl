@@ -33,3 +33,7 @@ zip_stage1: clean journal prez
 zip_stage2: clean journal prez
 	$(RM) $(ARCHIVE)
 	$(ZIPJ) $(ARCHIVE) journal/journal.pdf prez/stage2/stage2.pdf
+
+zip_stage3: clean journal prez
+	$(RM) $(ARCHIVE)
+	$(ZIPJ) $(ARCHIVE) journal/journal.pdf prez/stage3/stage3.pdf
