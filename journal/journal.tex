@@ -19,7 +19,7 @@
 \maketitle
 
 The repository for this project can be found on GitHub
-\footnote{\url{https://github.com/mihaimaruseac/ssl}}.
+\footnote{\url{https://github.com/mihaimaruseac/ssl}\label{fn:github}}.
 
 \section*{Project motivation}
 
@@ -46,8 +46,8 @@ involve using a free/open source CAPTCHA generator to generate
 a set of training and/or test examples and try to improve on
 various algorithms known to work well on this problem. Testing
 against well-known CAPTCHA systems such as Google's reCAPTCHA
-\footnote{\url{http://www.google.com/recaptcha}} could also give
-us a good idea about the performance of our algorithm(s), as
+\footnote{\url{http://www.google.com/recaptcha}\label{fn:recaptcha}} could
+also give us a good idea about the performance of our algorithm(s), as
 well as the effectiveness of CAPTCHA as a security mechanism.
 
 \section*{State of The Art}
@@ -60,8 +60,8 @@ similar to a Fast Fourier Transform (FFT), along with other methods,
 to break audio CAPTCHAs. Merler and Jacob \cite{Merler:2009} attempt
 to solve CAPTCHAs that consist of a combination of letters and
 images from given categories, using VidoopCAPTCHA
-\footnote{\url{http://vidoop.com/captcha/}} to generate data and
-image classifiers based on Support Vector Machines (SVM) to obtain
+\footnote{\url{http://vidoop.com/captcha/}\label{fn:vidoop}} to generate
+data and image classifiers based on Support Vector Machines (SVM) to obtain
 a model of the CAPTCHA.
 
 However the most common type of CAPTCHA are those that are based
@@ -74,9 +74,9 @@ and old radio shows. von Ahn et al.'s paper \cite{vonAhn12092008}
 gives a short presentation of how this is accomplished.
 
 A large number of researchers have worked on breaking the EZ-Gimpy
-and Gimpy \footnote{\url{http://www.captcha.net/captchas/gimpy/}}
-CAPTCHA generators used by Yahoo. From these, an interesting
-approach is that of Mori and Malik
+and Gimpy\footnote{\url{http://www.captcha.net/captchas/gimpy/}
+\label{fn:gimpy}} CAPTCHA generators used by Yahoo. From these, an
+interesting approach is that of Mori and Malik
 \cite{Mori:2003:ROA:1965841.1965858}, trying to recognize letters
 by separating them from the CAPTCHA clutter using Shape Contexts
  - this is basically done by trying to match candidate shapes
@@ -84,8 +84,8 @@ by separating them from the CAPTCHA clutter using Shape Contexts
 
 Chia-Shen Lee \cite{ShenLee} uses libraries for Support Vector
 Machines to break the open-source CAPTCHA script Securimage
-\footnote{\url{http://www.phpcaptcha.org/}}. He gives details
-on the SVM libraries used, namely libSVM and SVM-Light, and
+\footnote{\url{http://www.phpcaptcha.org/}\label{fn:securimage}}. He
+gives details on the SVM libraries used, namely libSVM and SVM-Light, and
 methods used to generate training data. The article also provides
 an analysis regarding the performance of the support vector machines
 in respect to the number of training examples and the form of
@@ -201,6 +201,14 @@ supervised learning method to tweak some of the parameters used in the
 pipeline. Because of this, on top of this sequence of stages we will have a
 module which should create CAPTCHAs and a module to test the learning
 capabilities of the application.
+
+\section*{Beta version: breaking simple CAPTCHAs}
+
+\textbf{TODO}: Intro goes here, explaining what all the phases are
+
+\subsection*{CAPTCHA generation}
+
+\ref{fn:securimage}
 
 \vskip 0.2in
 \bibliographystyle{plain}
