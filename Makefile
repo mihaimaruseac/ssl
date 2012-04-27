@@ -52,4 +52,4 @@ zip_stage3: clean journal prez3
 
 zip_stage4: clean journal prez4
 	@$(RM) $(ARCHIVE)
-	@$(ZIPJ) $(ARCHIVE) journal/journal.pdf prez/stage4/stage4.pdf
+	@$(ZIP) $(ARCHIVE) code/* journal/journal.pdf prez/stage4/stage4.pdf
