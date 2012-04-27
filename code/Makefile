@@ -10,7 +10,7 @@ clean:
 
 gen:
 	@make --no-print-directory -C gen
-	@./train.sh
+	@./train.bash
 
 svm:
 	@make --no-print-directory -C svm
