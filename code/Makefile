@@ -1,10 +1,13 @@
 .PHONY: all clean gen
 
-all: gen
+all: svm gen
 
 clean:
 	@make --no-print-directory -C gen clean
+	@make --no-print-directory -C svm clean
 
-gen:
+gen: svm
 	@make --no-print-directory -C gen
 
+svm:
+	@make --no-print-directory -C svm
