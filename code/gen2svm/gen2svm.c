@@ -59,6 +59,7 @@ int main(int argc, char** argv)
 			}
 	}
 
+#if 0
 	for (j = 0; j < COLUMNS; j++) {
 		s = 0;
 		for (i = 0; i < LINES; i++)
@@ -66,13 +67,20 @@ int main(int argc, char** argv)
 		if (s)
 			printf(" %d:%d", j, s);
 	}
+#endif
 
 	for (i = 0; i < LINES; i++) {
+#if 0
 		s = 0;
+#endif
 		for (j = 0; j < COLUMNS; j++)
+			if (matrix[i][j])
+				printf(" %d:%d", 1000 * i + j, matrix[i][j]);
+#if 0
 			s += matrix[i][j];
 		if (s)
 			printf(" %d:%d", 1000 + i, s);
+#endif
 	}
 
 	printf("\n");
