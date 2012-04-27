@@ -1,7 +1,10 @@
-.PHONY: all clean
+.PHONY: all clean gen
 
-all:
+all: gen
 
 clean:
+	@make --no-print-directory -C gen clean
 
+gen:
+	@make --no-print-directory -C gen
 
