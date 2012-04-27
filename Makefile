@@ -9,35 +9,35 @@ all: build
 build: journal prez code
 
 journal:
-	make -C journal
+	@make --no-print-directory -C journal
 
 prez:
-	make -C prez
+	@make --no-print-directory -C prez
 
 code:
-	make -C code
+	@make --no-print-directory -C code
 
 clean:
-	make -C journal clean
-	make -C prez clean
-	make -C code clean
+	@make --no-print-directory -C journal clean
+	@make --no-print-directory -C prez clean
+	@make --no-print-directory -C code clean
 
 dist: clean
-	$(RM) $(ARCHIVE)
-	$(ZIP) $(ARCHIVE) *
+	@$(RM) $(ARCHIVE)
+	@$(ZIP) $(ARCHIVE) *
 
 zip_stage1: clean journal prez
-	$(RM) $(ARCHIVE)
-	$(ZIPJ) $(ARCHIVE) journal/journal.pdf prez/stage1/stage1.pdf
+	@$(RM) $(ARCHIVE)
+	@$(ZIPJ) $(ARCHIVE) journal/journal.pdf prez/stage1/stage1.pdf
 
 zip_stage2: clean journal prez
-	$(RM) $(ARCHIVE)
-	$(ZIPJ) $(ARCHIVE) journal/journal.pdf prez/stage2/stage2.pdf
+	@$(RM) $(ARCHIVE)
+	@$(ZIPJ) $(ARCHIVE) journal/journal.pdf prez/stage2/stage2.pdf
 
 zip_stage3: clean journal prez
-	$(RM) $(ARCHIVE)
-	$(ZIPJ) $(ARCHIVE) journal/journal.pdf prez/stage3/stage3.pdf
+	@$(RM) $(ARCHIVE)
+	@$(ZIPJ) $(ARCHIVE) journal/journal.pdf prez/stage3/stage3.pdf
 
 zip_stage4: clean journal prez
-	$(RM) $(ARCHIVE)
-	$(ZIPJ) $(ARCHIVE) journal/journal.pdf prez/stage4/stage4.pdf
+	@$(RM) $(ARCHIVE)
+	@$(ZIPJ) $(ARCHIVE) journal/journal.pdf prez/stage4/stage4.pdf
