@@ -7,7 +7,9 @@ clean:
 
 gen:
 	@echo -n "Generating images..."
-	@./supervised-gen.bash
+	@./supervised-gen.bash 1000
 	@echo "done"
-
-
+	@echo -n "Generating images..."
+	@echo "Preparing for svm..."
+	@./svm-prepare.bash;
+	@echo "done"
