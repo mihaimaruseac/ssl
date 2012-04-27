@@ -248,6 +248,20 @@ text (for supervised learning). The session file is then decoded using
 \texttt{supervised-get.php} and saved in a text file that can be later
 read in the training phase.
 
+\subsection*{Letter recognition}
+
+For now, we generate CAPTCHAs with a single letter and we train a SVM model
+able to recognize the letters. We generate 1000 letters for this and use a set
+of bash scripts and C executables to transform the image into the format which
+libSVM accepts as input:
+
+\begin{verbatim}
+  label index:val index:val index:val index:val
+\end{verbatim}
+
+The generated model, however, is not very good. We will debug it for the later
+stages.
+
 \vskip 0.2in
 \bibliographystyle{plain}
 \bibliography{bibliography}
