@@ -1,14 +1,16 @@
-.PHONY: all clean gen
+.PHONY: all clean gen svm gen2svm
 
-all: svm gen gen2svm
+all: gen2svm svm gen
 
 clean:
 	@make --no-print-directory -C gen clean
 	@make --no-print-directory -C svm clean
 	@make --no-print-directory -C gen2svm clean
+	@$(RM) tset*
 
-gen: svm gen2svm
+gen:
 	@make --no-print-directory -C gen
+	@./train.sh
 
 svm:
 	@make --no-print-directory -C svm

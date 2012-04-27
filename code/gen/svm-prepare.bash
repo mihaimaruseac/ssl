@@ -18,3 +18,5 @@ for i in *.png; do
 done
 
 popd &> /dev/null
+
+mv "${TSET}" ..
