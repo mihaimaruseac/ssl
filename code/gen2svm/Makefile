@@ -1,7 +1,7 @@
 .PHONY: all clean
 
 CC = gcc
-CFLAGS = -Wall -Wextra -I../utils
+CFLAGS = -Wall -Wextra -I../utils -g
 OBJS = gen2svm.o
 TARGET=gen2svm
 

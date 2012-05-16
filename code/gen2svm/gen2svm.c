@@ -2,12 +2,12 @@
 #include <stdlib.h>
 
 #include "svmletters.h"
+#include "ppm.h"
 
-#define LINES 25
-#define COLUMNS 30
-
-void usage(char *pname)
+void usage(char *pname, char *msg)
 {
+	if (msg)
+		fprintf(stderr, "%s\n", msg);
 	fprintf(stderr, "Usage:\n");
 	fprintf(stderr, "\t%s LETTERFILE IMGFILE\n", pname);
 	exit(EXIT_FAILURE);
@@ -16,41 +16,33 @@ void usage(char *pname)
 int main(int argc, char** argv)
 {
 	FILE *f;
-	char line[COLUMNS + 2];
+	char line[LINE];
 	int i, j, s;
-	unsigned char matrix[LINES][COLUMNS];
+	char **matrix;
+	int LINES, COLUMNS;
 
 	if (argc != 3)
-		usage(argv[0]);
+		usage(argv[0], NULL);
 
+	/* read letter */
 	f = fopen(argv[1], "r");
 	if (!f)
-		usage(argv[0]);
-
-	if (!fgets(line, COLUMNS, f))
-		usage(argv[0]);
-
+		usage(argv[0], "Invalid letter file");
+	if (!fgets(line, LINE, f))
+		usage(argv[0], "Invalid letter file");
 	printf("%d", letter_value(line[0]));
 	
 	fclose(f);
 
+	/* read CAPTCHA */
 	f = fopen(argv[2], "r");
 	if (!f)
-		usage(argv[0]);
+		usage(argv[0], "Invalid CAPTCHA file");
+	matrix = read_P1_img(f, &LINES, &COLUMNS);
+	if (!matrix)
+		usage(argv[0], "Invalid CAPTCHA file");
+	fclose(f);
 
-	for (i = 0; i < LINES; i++) {
-		if (!fgets(line, COLUMNS + 2, f))
-			usage(argv[0]);
-
-		for (j = 0; j < COLUMNS; j++)
-			switch (line[j]) {
-			case '0': matrix[i][j] = 0; break;
-			case '1': matrix[i][j] = 1; break;
-			default: usage(argv[0]);
-			}
-	}
-
-#if 0
 	for (j = 0; j < COLUMNS; j++) {
 		s = 0;
 		for (i = 0; i < LINES; i++)
@@ -58,7 +50,6 @@ int main(int argc, char** argv)
 		if (s)
 			printf(" %d:%d", j, s);
 	}
-#endif
 
 	for (i = 0; i < LINES; i++) {
 #if 0
@@ -76,6 +67,9 @@ int main(int argc, char** argv)
 
 	printf("\n");
 
-	fclose(f);
+	for (i = 0; i < LINES; i++)
+		free(matrix[i]);
+	free(matrix);
+
 	return 0;
 }
