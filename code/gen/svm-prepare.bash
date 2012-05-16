@@ -12,7 +12,7 @@ for i in *.png; do
     PBM=${i%png}pbm
     TEXT=${i%png}txt
     convert "$i" "$PBM"
-    pnmtoplainpnm $PBM | tail -n +3 > tmp
+    pnmtoplainpnm $PBM > tmp
     ../../gen2svm/gen2svm "$TEXT" tmp >> ../"$TSET"
     rm ${PBM}
 done
