@@ -3,6 +3,11 @@
 
 IMGDIR="examples"
 NUM_TESTS="100"
+MODEL_FILE="std.model"
+
+if [ ! -z "$1" ]; then
+	MODEL_FILE="$1"
+fi
 
 echo -n "Generating images..."
 
@@ -17,4 +22,4 @@ echo -ne "Preparing for svm..."
 echo "done"
 popd &> /dev/null
 
-svm/svm-predict tset tset.model out
+svm/svm-predict tset "$MODEL_FILE" out
