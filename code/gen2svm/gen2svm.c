@@ -17,9 +17,9 @@ int main(int argc, char** argv)
 {
 	FILE *f;
 	char line[LINE];
-	int i, j, s;
-	char **matrix;
-	int LINES, COLUMNS;
+	int i, j;
+	char **matrix, **tmatrix;
+	int LINES, COLUMNS, TLINES, TCOLUMNS;
 
 	if (argc != 3)
 		usage(argv[0], NULL);
@@ -43,33 +43,21 @@ int main(int argc, char** argv)
 		usage(argv[0], "Invalid CAPTCHA file");
 	fclose(f);
 
-	for (j = 0; j < COLUMNS; j++) {
-		s = 0;
-		for (i = 0; i < LINES; i++)
-			s += matrix[i][j];
-		if (s)
-			printf(" %d:%d", j, s);
-	}
+	trim_img(matrix, &tmatrix, LINES, COLUMNS, &TLINES, &TCOLUMNS);
 
-	for (i = 0; i < LINES; i++) {
-#if 0
-		s = 0;
-#endif
+	for (i = 0; i < LINES; i++)
 		for (j = 0; j < COLUMNS; j++)
 			if (matrix[i][j])
-				printf(" %d:%d", 1000 * i + j, matrix[i][j]);
-#if 0
-			s += matrix[i][j];
-		if (s)
-			printf(" %d:%d", 1000 + i, s);
-#endif
-	}
+				printf(" %d:%d", 100000 * i + j, i + j + matrix[i][j]);
 
 	printf("\n");
 
 	for (i = 0; i < LINES; i++)
 		free(matrix[i]);
 	free(matrix);
+	for (i = 0; i < TLINES; i++)
+		free(tmatrix[i]);
+	free(tmatrix);
 
 	return 0;
 }

@@ -42,5 +42,55 @@ err:
 	return NULL;
 }
 
+static void trim_img(char **img, char ***timg, int L, int C, int *LINES, int *COLUMNS)
+{
+	int i, j, minl, maxl, minc, maxc, found;
+
+	found = 0; /* trim top */
+	for (i = 0; i < L && !found; i++)
+		for (j = 0; j < C; j++)
+			if(img[i][j] != 0) {
+				found = 1;
+				minl = i;
+				break;
+			}
+
+	found = 0; /* trim bottom */
+	for (i = L - 1; i >= 0 && !found; i--)
+		for (j = 0; j < C; j++)
+			if(img[i][j] != 0) {
+				found = 1;
+				maxl = i + 1;
+				break;
+			}
+
+	found = 0; /* trim left */
+	for (j = 0; j < C && !found; j++)
+		for (i = 0; i < L; i++)
+			if(img[i][j] != 0) {
+				found = 1;
+				minc = j;
+				break;
+			}
+
+	found = 0; /* trim right */
+	for (j = C - 1; j >= 0 && !found; j--)
+		for (i = 0; i < L; i++)
+			if(img[i][j] != 0) {
+				found = 1;
+				maxc = j + 1;
+				break;
+			}
+
+	*LINES = maxl - minl;
+	*COLUMNS = maxc - minc;
+	*timg = calloc(*LINES, sizeof(img[0]));
+	for (i = 0; i < *LINES; i++) {
+		(*timg)[i] = calloc(*COLUMNS, sizeof(img[0][0]));
+		for (j = 0; j < *COLUMNS; j++)
+			(*timg)[i][j] = img[i + minl][j + minc];
+	}
+}
+
 #endif
 
