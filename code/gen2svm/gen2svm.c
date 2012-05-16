@@ -48,7 +48,7 @@ int main(int argc, char** argv)
 	for (i = 0; i < LINES; i++)
 		for (j = 0; j < COLUMNS; j++)
 			if (matrix[i][j])
-				printf(" %d:%d", 100000 * i + j, i + j + matrix[i][j]);
+				printf(" %d:%d", 100000 * i + j, matrix[i][j]);
 
 	printf("\n");
 
