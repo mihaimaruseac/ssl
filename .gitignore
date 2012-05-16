@@ -8,4 +8,4 @@ svm-predict
 svm-scale
 svm-train
 /code/gen/examples/
-gen2svm
+/code/gen2svm/gen2svm
