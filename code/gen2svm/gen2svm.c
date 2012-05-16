@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "svmletters.h"
+
 #define LINES 25
 #define COLUMNS 30
 
@@ -9,17 +11,6 @@ void usage(char *pname)
 	fprintf(stderr, "Usage:\n");
 	fprintf(stderr, "\t%s LETTERFILE IMGFILE\n", pname);
 	exit(EXIT_FAILURE);
-}
-
-int letter_value(char letter)
-{
-	if (letter >= 'a' && letter <= 'z')
-		return 11 + letter - 'a';
-	if (letter >= 'A' && letter <= 'Z')
-		return 11 + letter - 'A';
-	if (letter >= '0' && letter <= '9')
-		return 1 + letter - '0';
-	return 0;
 }
 
 int main(int argc, char** argv)
