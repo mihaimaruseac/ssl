@@ -1,3 +1,4 @@
+NUM_EXAMPLES = 1000
 .PHONY: all clean gen
 
 all: gen
@@ -7,7 +8,7 @@ clean:
 
 gen:
 	@echo -n "Generating images..."
-	@./supervised-gen.bash 2000
+	@./supervised-gen.bash $(NUM_EXAMPLES)
 	@echo "done"
 	@echo -ne "Preparing for svm..."
 	@./svm-prepare.bash;
