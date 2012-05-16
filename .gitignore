@@ -2,3 +2,10 @@
 *.zip
 texfiles
 *.pdf
+tset*
+*.o
+svm-predict
+svm-scale
+svm-train
+/code/gen/examples/
+gen2svm
