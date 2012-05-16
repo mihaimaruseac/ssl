@@ -14,10 +14,9 @@ session_start();
 $img = new Securimage();
 
 //Change some settings
-$img->image_width     = 30;
-$img->image_height    = 25;
-$img->perturbation    = 0;      // high level of distortion
 $img->code_length     = rand(1,1); // random code length
+$img->case_sensitive  = true;
+$img->perturbation    = 0;      // high level of distortion
 $img->image_bg_color  = new Securimage_Color("#ffffff");
 $img->num_lines       = 0;
 $img->noise_level     = 0;
