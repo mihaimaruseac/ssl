@@ -321,6 +321,38 @@ have? What are the contents of an image (in this case we will use ,,image'' to
 refer to the graphical representation of a letter)? What information do we need
 to extract from those contents?
 
+The model we have chosen consists of a class for each (case-sensitive) letter.
+We assume the CAPTCHA generator generates only basic (printable ASCII) alphabet
+letters, thus there are 52 classes. Using this as a basis, we have a few
+choices when it comes to extracting information from the images:
+
+\begin{itemize}
+	\item Computing the sum of non-white pixels on lines/columns: this results
+	in a model that can be computed efficiently in terms of time, but has the
+	disadvantage that it results in information loss. Different letters can
+	have the same number of pixels on some (or most of the) columns and/or
+	lines.
+	\item Same strategy as above, only this time compute the sums on diagonals:
+	it has mostly the same advantages and drawbacks, with the mention that
+	scaling and noise can lead to inaccurate results.
+	\item Keep information about all non-white pixels -- namely their
+	coordinates. This is less noise sensitive and can provide very good
+	accuracy, but has a much greater computational cost.
+	\item Detect letter features and learn specific features for each character.
+\end{itemize}
+
+We have currently chosen the third method. One of the particularities of this
+approach is that the letter must be compact to allow efficient learning of the
+input data. By ,,compact'' we mean that there must be as little space as
+possible surrounding a letter. Thus one of the improvements we did was to try
+and find bounding boxes surrounding the letters.
+
+We modified the \texttt{gen2svm} tool by adding a preprocessing function,
+\texttt{trim\_img()}. The function searches for letter extremities and
+eliminates any possible additional white space, getting the maximum possible
+information out of the image. In the future this algorithm might be replaced
+with a curve detection filter.
+
 \subsection*{Results}
 
 \subsection*{Future work}
