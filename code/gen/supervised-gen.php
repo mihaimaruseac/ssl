@@ -24,6 +24,11 @@ $img->text_color      = new Securimage_Color("#000000");
 $img->noise_color     = $img->text_color;
 $img->line_color      = new Securimage_Color("#cccccc");
 
+if ($argc == 2) {
+	$img->noise_level = floatval($argv[1]);
+	$img->perturbation = 0.1;
+}
+
 $img->show();
 
 ?>

@@ -14,7 +14,7 @@ echo -n "Generating images..."
 # move to gen
 pushd gen &> /dev/null
 rm -rf "$IMGDIR"
-./supervised-gen.bash "$NUM_TESTS"
+./supervised-gen.bash "$NUM_TESTS" "$NOISE"
 echo "done"
 
 echo -ne "Preparing for svm..."

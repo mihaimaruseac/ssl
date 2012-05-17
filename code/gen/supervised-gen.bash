@@ -17,7 +17,7 @@ mkdir "$IMGDIR"
 
 # generate data
 for i in $(seq -w $NUM_IMGS); do
-	php supervised-gen.php > "$IMGDIR"/"$i".png
+	php supervised-gen.php "$2" > "$IMGDIR"/"$i".png
 	php supervised-get.php > "$IMGDIR"/"$i".txt
 	rm "$SESSPATH"
 done
