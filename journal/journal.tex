@@ -307,7 +307,19 @@ actual predicted letters.
 The testing phase currently randomly generates a number of 100 examples used
 for evaluation. The metric used for evaluation is accuracy.
 
-\subsection*{Finding a suitable model}
+\subsection*{Finding a suitable model for learning}
+
+Obtaining a model that is able to do efficient CAPTCHA recognition can only be
+done by taking into account its design. We know that we will typically feed
+images to our CAPTCHA recognition system, with the output being the text
+associated with the image. We must however find an internal representation of
+the image that is able to provide libSVM with relevant information that will
+then be used to build an accurate model.
+
+For this we need to take into account several aspects: how many classes will we
+have? What are the contents of an image (in this case we will use ,,image'' to
+refer to the graphical representation of a letter)? What information do we need
+to extract from those contents?
 
 \subsection*{Results}
 
