@@ -266,12 +266,31 @@ libSVM accepts as input:
 The generated model, however, it's not very good. We will debug it for the
 later stages.
 
-\section*{Final version}
+\section{Final version}
 \label{sec:final}
 
 \subsection*{Model training}
 
+Model training is done by using scripts provided by libSVM along with a tool
+named \texttt{gen2svm} that we previously developed to convert the images into
+a format readable by the SVM library. libSVM uses the \texttt{svm-train}
+executable to train a model. However, first the data provided needs to be
+scaled using \texttt{svm-scale}. This stage can already be executed in an
+automated fashion by a Python script called \texttt{easy.py}, that also
+displays a Gnuplot graph of the model while it's being constructed.
+
+\texttt{easy.py} builds an initial model that it then improves upon by doing
+n-fold cross-validation using a default number of sets $n = 5$. It then
+evaluates and outputs the accuracy of the obtained model on the entire training
+set.
+
+The script uses a Gaussian kernel to learn the classification model.
+
 \subsection*{Model testing}
+
+After obtaining a model, we need to test it on a separate data set. We do this
+using mostly the same infrastructure, as described in Section
+\ref{sec:architecture}.
 
 \subsection*{Finding a suitable model}
 
