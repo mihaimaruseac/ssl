@@ -23,6 +23,7 @@ The repository for this project can be found on GitHub
 \footnote{\url{https://github.com/mihaimaruseac/ssl}\label{fn:github}}.
 
 \section*{Project motivation}
+\label{sec:motivation}
 
 The CAPTCHA (Completely Automated Public Turing test to tell
 Computers and Humans Apart) mechanism is a measure widely used on
@@ -52,6 +53,7 @@ also give us a good idea about the performance of our algorithm(s), as
 well as the effectiveness of CAPTCHA as a security mechanism.
 
 \section*{State of The Art}
+\label{sec:sota}
 
 CAPTCHA tests can be found in various forms on the Internet, ranging
 from short audio streams to images. Thus previous research on the
@@ -133,6 +135,7 @@ caused by broken characters. Geometric analysis is applied to
 differentiate between letters that have the same number of pixels.
 
 \section*{Architecture}
+\label{sec:architecture}
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.85\textwidth]{img/unCAPTCHAarchitecturedraft.pdf}
@@ -204,6 +207,7 @@ module which should create CAPTCHAs and a module to test the learning
 capabilities of the application.
 
 \section*{Beta version: breaking simple CAPTCHAs}
+\label{sec:beta}
 
 For the beta version of this project we concentrated on generating simple
 CAPTCHAs and using a simple libSVM procedure to analyse them. Thus, at this
@@ -259,8 +263,21 @@ libSVM accepts as input:
   label index:val index:val index:val index:val
 \end{verbatim}
 
-The generated model, however, is not very good. We will debug it for the later
-stages.
+The generated model, however, it's not very good. We will debug it for the
+later stages.
+
+\section*{Final version}
+\label{sec:final}
+
+\subsection*{Model training}
+
+\subsection*{Model testing}
+
+\subsection*{Finding a suitable model}
+
+\subsection*{Results}
+
+\subsection*{Future work}
 
 \vskip 0.2in
 \bibliographystyle{plain}
