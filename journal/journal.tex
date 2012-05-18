@@ -8,6 +8,7 @@
 \usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{listings}
+\usepackage{multirow}
 
 \title{Solving CAPTCHAs}
 \author{Mihai Maruseac, Lucian Mogoșanu, Sofia Neață, Adrian Șendroiu}
@@ -354,6 +355,34 @@ information out of the image. In the future this algorithm might be replaced
 with a curve detection filter.
 
 \subsection*{Results}
+
+\begin{table}
+\centering\begin{tabular}{|c|c|c|} \hline
+
+	No. Training Examples & Noise ratio & Accuracy \\ \hline
+	\multirow{3}{*}{100}  &	0	&	TODO \\ \cline{2-3}
+		& 0.3	& TODO \\ \cline{2-3}
+		& 0.7	& TODO \\ \hline
+	\multirow{3}{*}{200}  & 0	& TODO \\ \cline{2-3}
+		& 0.3	& TODO \\ \cline{2-3}
+		& 0.7	& TODO \\ \hline
+	\multirow{3}{*}{300}  & 0	& TODO \\ \cline{2-3}
+		& 0.3	& TODO \\ \cline{2-3}
+		& 0.7	& TODO \\ \hline
+	\multirow{3}{*}{400}  & 0	& TODO \\ \cline{2-3}
+		& 0.3	& TODO \\ \cline{2-3}
+		& 0.7	& TODO \\ \hline
+	\multirow{3}{*}{500}  & 0	& TODO \\ \cline{2-3}
+		& 0.3	& TODO \\ \cline{2-3}
+		& 0.7	& TODO \\ \hline
+	\multirow{2}{*}{1000}  & 0	& TODO \\ \cline{2-3}
+		& 0.3	& TODO \\ \hline
+
+\end{tabular}
+\caption{Prediction accuracy for 100 letters as a function of noise and number
+of training examples.}
+\label{tab:results-accuracy}
+\end{table}
 
 \subsection*{Future work}
 
