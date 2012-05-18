@@ -360,31 +360,52 @@ with a curve detection filter.
 \centering\begin{tabular}{|c|c|c|} \hline
 
 	No. Training Examples & Noise ratio & Accuracy \\ \hline
-	\multirow{3}{*}{100}  &	0	&	TODO \\ \cline{2-3}
-		& 0.3	& TODO \\ \cline{2-3}
-		& 0.7	& TODO \\ \hline
-	\multirow{3}{*}{200}  & 0	& TODO \\ \cline{2-3}
-		& 0.3	& TODO \\ \cline{2-3}
-		& 0.7	& TODO \\ \hline
-	\multirow{3}{*}{300}  & 0	& TODO \\ \cline{2-3}
-		& 0.3	& TODO \\ \cline{2-3}
-		& 0.7	& TODO \\ \hline
-	\multirow{3}{*}{400}  & 0	& TODO \\ \cline{2-3}
-		& 0.3	& TODO \\ \cline{2-3}
-		& 0.7	& TODO \\ \hline
-	\multirow{3}{*}{500}  & 0	& TODO \\ \cline{2-3}
-		& 0.3	& TODO \\ \cline{2-3}
-		& 0.7	& TODO \\ \hline
-	\multirow{2}{*}{1000}  & 0	& TODO \\ \cline{2-3}
-		& 0.3	& TODO \\ \hline
+	\multirow{3}{*}{100}  &	0	&	69.6\% \\ \cline{2-3}
+		& 0.3	& 69.2\% \\ \cline{2-3}
+		& 0.7	& 67.2\% \\ \hline
+	\multirow{3}{*}{200}  & 0	& 90\% \\ \cline{2-3}
+		& 0.3	& 89.4\% \\ \cline{2-3}
+		& 0.7	& 89\% \\ \hline
+	\multirow{3}{*}{300}  & 0	& 88.8\% \\ \cline{2-3}
+		& 0.3	& 85.2\% \\ \cline{2-3}
+		& 0.7	& 84.2\% \\ \hline
+	\multirow{3}{*}{400}  & 0	& 89\% \\ \cline{2-3}
+		& 0.3	& 88.8\% \\ \cline{2-3}
+		& 0.7	& 86.6\% \\ \hline
+	\multirow{3}{*}{500}  & 0	& 87.6\%\\ \cline{2-3}
+		& 0.3	& 85.6\% \\ \cline{2-3}
+		& 0.7	& 87.2\% \\ \hline
+	\multirow{2}{*}{1000}  & 0	& 88.8\% \\ \cline{2-3}
+		& 0.3	& 88\% \\ \hline
 
 \end{tabular}
-\caption{Prediction accuracy for 100 letters as a function of noise and number
+\caption{Prediction accuracy for 500 letters as a function of noise and number
 of training examples.}
 \label{tab:results-accuracy}
 \end{table}
 
+Using the methods above, we tested the performance of our letter detector. For
+each test we randomly generated a set of 500 examples and used the testing
+module to evaluate the predictive accuracy of a given model. For this we used
+six models based on the design described above, trained on 100, 200, 300, 400,
+500 and 1000 training examples respectively. We also previously used a model
+trained using 2000 examples previously, but we afterwards dropped it because
+too many examples were leading to overfitting.
+
+We also used noise as a parameter in our tests. The noise generator used by
+Securimage typically introduces random non-white pixels in a clean image. We
+tested using noise factors of 0 (clean image), 0.3 and 0.7.
+
+The test results can be viewed in Table \ref{tab:results-accuracy}. This gives
+a good image of how relatively good accuracy can be obtained from a set of 200
+to 500 training examples. At the same time we notice that 1000 examples don't
+give us any improvement over a smaller number. The best result for clean images
+was obtained using 200 examples, though this number varied in subsequent runs
+of the test.
+
 \subsection*{Future work}
+
+
 
 \vskip 0.2in
 \bibliographystyle{plain}
