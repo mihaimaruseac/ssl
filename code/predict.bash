@@ -2,7 +2,7 @@
 # Test the accuracy of a model
 
 IMGDIR="examples"
-NUM_TESTS="100"
+NUM_TESTS="500"
 MODEL_FILE="std.model"
 
 if [ ! -z "$1" ]; then
