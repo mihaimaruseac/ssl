@@ -400,12 +400,33 @@ The test results can be viewed in Table \ref{tab:results-accuracy}. This gives
 a good image of how relatively good accuracy can be obtained from a set of 200
 to 500 training examples. At the same time we notice that 1000 examples don't
 give us any improvement over a smaller number. The best result for clean images
-was obtained using 200 examples, though this number varied in subsequent runs
-of the test.
+was obtained using 200 examples, though this number varied in small amounts in
+subsequent runs of the test.
 
-\subsection*{Future work}
+\subsection*{Conclusions and future work}
 
+The current stage of our CAPTCHA detection engine contains the implementation
+of most of the core modules. It is able to recognize representations of letters
+with a fairly good accuracy while eliminating at the same time some of the
+noise sensitivity.
 
+In the future, focus will be split in two main areas of work. The first area
+consists of the implementation of some of the missing modules in the
+pipeline -- namely \textit{Layouting} and \textit{Linearizing} -- so that we
+are able to properly break images into individual letters and take into account
+perturbations that result in changes of the text shape and/or position. This
+area should be able to eliminate noise elements such as a background or lines
+from the input image, resulting in a (mostly) clean text shape.
+
+The second area of work will focus on improving the actual learning process.
+While the Gaussian kernel used for training is very powerful, another option
+may prove to be more effective. At the same time we should develop a set of
+more advanced features to use in our model design. As there is no general idea
+of how such features must look and how they should be combined to form letters,
+this is a subject that will require further research. We can however speculate
+that a starting point could be some particular cognitive model, the ideas
+proposed by Finkbeiner and Coltheart\cite{Finkbeiner_Coltheart_2009} being just
+an example.
 
 \vskip 0.2in
 \bibliographystyle{plain}
